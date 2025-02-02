@@ -48,28 +48,29 @@
     </header>
     <main>
         <section class="recipes">
-            <div class="recipe">
+            <div class="recipe" onclick="openPopup('Garlic Butter Green Beans')">
                 <img src="images/greenbeans.jfif" alt="Green Beans">
                 <div class="info">
                     <h3>Delicious Garlic Butter Green Beans</h3>
                     <p>A simple and tasty side dish of garlic butter sautéed green beans.</p>
                 </div>
             </div>
-            <div class="recipe">
+            
+            <div class="recipe" onclick="openPopup('Crispy Homemade Chicken Nuggets')">
                 <img src="images/nugget.jpg" alt="Chicken Nuggets">
                 <div class="info">
                     <h3>Crispy Homemade Chicken Nuggets</h3>
                     <p>These homemade chicken nuggets are crispy on the outside and tender on the inside.</p>
                 </div>
             </div>
-            <div class="recipe">
+            <div class="recipe" onclick="openPopup('Creamy Alfredo Pasta with Shrimp')">
                 <img src="images/pasta.jpg" alt="Pasta">
                 <div class="info">
                     <h3>Creamy Alfredo Pasta with Shrimp</h3>
                     <p>A creamy, rich alfredo pasta served with succulent shrimp.</p>
                 </div>
             </div>
-            <div class="recipe">
+            <div class="recipe" onclick="openPopup('Garlic Butter Shrimp with Lemon')">
                 <img src="images/Garlic Shrimp.jfif" alt="Garlic Shrimp">
                 <div class="info">
                     <h3>Garlic Butter Shrimp with Lemon</h3>
@@ -78,28 +79,179 @@
             </div>
         </section>
     </main>
-            </section>
             
-        </section>
         <section class="video">
             <div class="video-row">
-                <div class="video-item">
+                <div class="video-item" onclick="openPopup('Spicy Beef Taco')">
                     <video src="videos/bg 6.mp4" loop autoplay muted></video>
                     <div class="info">
                         <h3>Spicy Beef Taco</h3>
                         <p>A flavorful taco filled with seasoned beef, fresh toppings, and zesty salsa.</p>
                     </div>
                 </div>
-                <div class="video-item">
+                <div class="video-item" onclick="openPopup('Chocolate Pancake Delight')">
                     <video src="videos/bg 7.mp4" loop autoplay muted></video>
                     <div class="info">
-                        <h3>Garlic Butter Shrimp with Lemon</h3>
-                        <p>This garlic butter shrimp with lemon is bursting with flavor and easy to make.</p>
+                        <h3>Chocolate Pancake Delight</h3>
+                        <p>Fluffy chocolate pancakes topped with rich chocolate sauce and a scoop of creamy ice cream.</p>
                     </div>
                 </div>
             </div>
         </section>        
     </main>
+
+<!-- Popup Modal -->
+<div class="popup-overlay" onclick="closePopup()"></div>
+<div class="popup" id="popup">
+    <button class="close-btn" onclick="closePopup()">X</button>
+    <div class="popup-content">
+        <h3 id="popup-title"></h3>
+        <img id="popup-image" src="" alt="" style="display:none;">
+        <video id="popup-video" controls style="display:none;"></video> <!-- Added video element -->
+        <p id="popup-description"></p>
+        <div id="popup-ingredients"></div>
+        <div id="popup-steps"></div>
+    </div>
+</div>
+
+        
+     </div>
+ 
+     <script>
+    function openPopup(title) {
+        let recipes = {
+            "Garlic Butter Green Beans": {
+                image: "images/greenbeans.jfif",
+                description: "A simple and tasty side dish of garlic butter sautéed green beans. Perfectly crisp and full of flavor.",
+                ingredients: [
+                    "2 cups fresh green beans",
+                    "2 tbsp butter",
+                    "2 cloves garlic, minced",
+                    "Salt & pepper to taste"
+                ],
+                steps: [
+                    "Boil green beans for 3-4 minutes, then drain.",
+                    "Melt butter in a pan, add garlic and sauté until fragrant.",
+                    "Add green beans and stir-fry for 2 minutes.",
+                    "Season with salt and pepper, then serve warm."
+                ]
+            },
+            "Crispy Homemade Chicken Nuggets": {
+                image: "images/nugget.jpg",
+                description: "These homemade chicken nuggets are crispy on the outside and tender on the inside.",
+                ingredients: [
+                    "2 chicken breasts, cut into chunks",
+                    "1 cup flour",
+                    "1 cup breadcrumbs",
+                    "2 eggs, beaten",
+                    "Salt & pepper to taste",
+                    "Oil for frying"
+                ],
+                steps: [
+                    "Dip chicken pieces into flour, then egg, then breadcrumbs.",
+                    "Heat oil in a pan and fry chicken until golden brown.",
+                    "Drain excess oil on paper towels and serve with dipping sauce."
+                ]
+            },
+            "Creamy Alfredo Pasta with Shrimp": {
+                image: "images/pasta.jpg",
+                description: "A creamy, rich alfredo pasta served with succulent shrimp.",
+                ingredients: [
+                    "200g fettuccine pasta",
+                    "1 lb shrimp, peeled and deveined",
+                    "1 cup heavy cream",
+                    "2 tbsp butter",
+                    "2 cloves garlic, minced",
+                    "1/2 cup grated Parmesan cheese",
+                    "Salt & pepper to taste"
+                ],
+                steps: [
+                    "Cook fettuccine pasta according to package instructions.",
+                    "Sauté shrimp in butter and garlic until pink.",
+                    "In a pan, combine heavy cream, Parmesan, and seasoning, cooking until thickened.",
+                    "Toss pasta in the creamy sauce and top with shrimp."
+                ]
+            },
+            "Garlic Butter Shrimp with Lemon": {
+                image: "images/Garlic Shrimp.jfif",
+                description: "This garlic butter shrimp with lemon is bursting with flavor and easy to make.",
+                ingredients: [
+                    "1 lb shrimp, peeled and deveined",
+                    "4 tbsp butter",
+                    "3 cloves garlic, minced",
+                    "1 tbsp lemon juice",
+                    "Salt & pepper to taste",
+                    "Chopped parsley for garnish"
+                ],
+                steps: [
+                    "Sauté shrimp in butter and garlic until pink.",
+                    "Add lemon juice and season with salt and pepper.",
+                    "Garnish with parsley and serve warm."
+                ]
+            },
+            "Spicy Beef Taco": {
+                video: "videos/bg 6.mp4",
+                description: "A flavorful taco filled with seasoned beef, fresh toppings, and zesty salsa.",
+                ingredients: [
+                    "1 lb ground beef",
+                    "1 packet taco seasoning",
+                    "1/2 cup water",
+                    "Taco shells",
+                    "Lettuce, shredded",
+                    "Tomatoes, diced",
+                    "Cheese, shredded",
+                    "Sour cream, optional"
+                ],
+                steps: [
+                    "Brown ground beef in a pan, add taco seasoning and water.",
+                    "Simmer until the beef is fully cooked.",
+                    "Fill taco shells with beef and top with lettuce, tomatoes, cheese, and sour cream."
+                ]
+            },
+            "Chocolate Pancake Delight": {
+                video: "videos/bg.mp4",
+                description: "Fluffy chocolate pancakes topped with rich chocolate sauce and a scoop of creamy ice cream.",
+                ingredients: [
+                    "1 cup all-purpose flour",
+                    "1/4 cup cocoa powder",
+                    "1 tbsp sugar",
+                    "1 tsp baking powder",
+                    "1/2 cup milk",
+                    "1 egg",
+                    "1/4 cup chocolate chips",
+                    "Chocolate sauce and ice cream for serving"
+                ],
+                steps: [
+                    "Mix dry ingredients in one bowl and wet ingredients in another.",
+                    "Combine the wet and dry ingredients and add chocolate chips.",
+                    "Cook pancakes on a heated griddle until golden brown.",
+                    "Top with chocolate sauce and a scoop of ice cream."
+                ]
+            }
+        };
+
+        if (recipes[title]) {
+            document.getElementById("popup-title").innerText = title;
+            document.getElementById("popup-image").src = recipes[title].image;
+            document.getElementById("popup-description").innerText = recipes[title].description;
+
+            let ingredientsList = recipes[title].ingredients.map(item => `<li>${item}</li>`).join("");
+            let stepsList = recipes[title].steps.map(item => `<li>${item}</li>`).join("");
+
+            document.getElementById("popup-ingredients").innerHTML = `<h4>Ingredients:</h4><ul>${ingredientsList}</ul>`;
+            document.getElementById("popup-steps").innerHTML = `<h4>Steps:</h4><ul>${stepsList}</ul>`;
+            
+            document.querySelector(".popup-overlay").style.display = "block";
+            document.getElementById("popup").style.display = "block";
+        }
+    }
+
+    function closePopup() {
+        document.querySelector(".popup-overlay").style.display = "none";
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
     <footer>
         <p>&copy; 2024 My Personal Blog</p>
         <div class="footer-content">
